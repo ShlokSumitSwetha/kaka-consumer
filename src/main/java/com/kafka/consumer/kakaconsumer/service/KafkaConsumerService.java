@@ -14,7 +14,6 @@ public class KafkaConsumerService {
     @KafkaListener(topics = "users", groupId = "consumer-group-2")
     public void Invoice1Consumer(@Payload String value,
                                  @Header(name = KafkaHeaders.RECEIVED_KEY) String key) {
-
         log.info(String.format("Received Message Key: %s, Value: %s", key, value));
     }
 }

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumerService {
 
-    @KafkaListener(topics = "users", groupId = "consumer-group-1")
+    @KafkaListener(topics = "users", groupId = "consumer-group-2")
     public void Invoice1Consumer(@Payload String value,
-                                 @Header(name = KafkaHeaders.RECEIVED_KEY) Integer key) {
+                                 @Header(name = KafkaHeaders.RECEIVED_KEY) String key) {
 
-        log.info(String.format("Received Message Key: %d, Value: %s", key, value));
+        log.info(String.format("Received Message Key: %s, Value: %s", key, value));
     }
 }
